@@ -24,9 +24,7 @@ export const HomePage = () => {
       {/* {isLoading && <Loader />} */}
       {error &&
         Notify.failure(
-          `Ooops, something happend wrong ${
-            error.message
-          }. Please, return to the ${(<Link to="/">Home page</Link>)}`
+          `Ooops, something happend wrong ${error.message}. Please, reload the page`
         )}
       <ul>
         {movies &&
