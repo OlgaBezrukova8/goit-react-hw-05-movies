@@ -30,7 +30,7 @@ export const HomePage = () => {
         {movies &&
           movies.results.map(({ title, id }) => (
             <li key={id}>
-              <Link state={{ from: location.pathname }} to={id}>
+              <Link state={{ from: location.pathname }} to={`/movies/${id}`}>
                 {title}
               </Link>
             </li>
