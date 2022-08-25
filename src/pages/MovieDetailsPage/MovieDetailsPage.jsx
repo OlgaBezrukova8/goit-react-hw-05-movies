@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
 import { useFetchMovies } from '../../hooks/useFetchMovies';
 import { MovieDetails } from '../../components/MovieDetails/MovieDetails';
 
@@ -6,6 +6,9 @@ const basePosterUrl = 'https://image.tmdb.org/t/p';
 
 export const MovieDetailsPage = () => {
   const movie = useFetchMovies();
+  const { movieId } = useParams();
+
+  const location = useLocation();
 
   return (
     <>
@@ -21,8 +24,12 @@ export const MovieDetailsPage = () => {
         />
       )}
 
-      <Link to="">Cast</Link>
+      <Link state={{ from: location.pathname }} to={`/movies/${movieId}/cast`}>
+        Cast
+      </Link>
       <Link to="">Reviews</Link>
+
+      <Outlet />
     </>
   );
 };
