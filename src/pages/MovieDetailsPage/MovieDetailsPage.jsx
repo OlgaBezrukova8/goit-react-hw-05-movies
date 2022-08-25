@@ -1,4 +1,10 @@
-import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
+import {
+  Link,
+  Outlet,
+  useLocation,
+  useParams,
+  useNavigate,
+} from 'react-router-dom';
 import { useFetchMovies } from '../../hooks/useFetchMovies';
 import { MovieDetails } from '../../components/MovieDetails/MovieDetails';
 
@@ -9,10 +15,15 @@ export const MovieDetailsPage = () => {
   const { movieId } = useParams();
 
   const location = useLocation();
+  const navigate = useNavigate();
+
+  const from = location.state?.from || '/';
+
+  const goBack = () => navigate(from);
 
   return (
     <>
-      <button>Go back</button>
+      <button onClick={goBack}>Go back</button>
 
       {movie && (
         <MovieDetails
@@ -24,10 +35,15 @@ export const MovieDetailsPage = () => {
         />
       )}
 
-      <Link state={{ from: location.pathname }} to={`/movies/${movieId}/cast`}>
-        Cast
-      </Link>
-      <Link to="">Reviews</Link>
+      <div>
+        <p>Additional information</p>
+        <Link state={{ from }} to={`/movies/${movieId}/cast`}>
+          Cast
+        </Link>
+        <Link state={{ from }} to={`/movies/${movieId}/reviews`}>
+          Reviews
+        </Link>
+      </div>
 
       <Outlet />
     </>

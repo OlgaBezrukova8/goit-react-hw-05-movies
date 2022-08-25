@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 export const MovieDetails = ({ img, title, vote, overview, genres }) => {
   return (
     <div>
@@ -16,4 +18,12 @@ export const MovieDetails = ({ img, title, vote, overview, genres }) => {
       <p>{genres}</p>
     </div>
   );
+};
+
+MovieDetails.propTypes = {
+  img: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  vote: PropTypes.string.isRequired,
+  overview: PropTypes.string.isRequired,
+  genres: PropTypes.array.isRequired,
 };

@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom';
+import { navLinks } from '../../components/Navigation/navLinks';
 import styles from '../Navigation/Navigation.module.css';
 
 const getClassName = ({ isActive }) => {
@@ -6,19 +7,14 @@ const getClassName = ({ isActive }) => {
   return className;
 };
 
+const nav = navLinks.map(({ to, name }) => (
+  <li key={name} className={styles.item}>
+    <NavLink className={getClassName} to={to}>
+      {name}
+    </NavLink>
+  </li>
+));
+
 export const Navigation = () => {
-  return (
-    <ul className={styles.list}>
-      <li className={styles.item}>
-        <NavLink className={getClassName} to="/">
-          Home
-        </NavLink>
-      </li>
-      <li className={styles.item}>
-        <NavLink className={getClassName} to="/movies">
-          Movies
-        </NavLink>
-      </li>
-    </ul>
-  );
+  return <ul className={styles.list}>{nav}</ul>;
 };

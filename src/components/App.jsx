@@ -1,27 +1,11 @@
-import { Routes, Route } from 'react-router-dom';
 import { Navigation } from '../components/Navigation/Navigation';
-import { HomePage } from '../pages/HomePage/HomePage';
-import { MoviesPage } from '../pages/MoviesPage/MoviesPage';
-import { MovieDetailsPage } from '../pages/MovieDetailsPage/MovieDetailsPage';
-import { Cast } from '../components/Cast/Cast';
-import { Reviews } from '../components/Reviews/Reviews';
-import { NotFoundPage } from '../pages/NotFoundPage/NotFoundPage';
+import { UserRoutes } from '../components/UserRoutes/UserRoutes';
 
 export const App = () => {
   return (
     <>
       <Navigation />
-
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/movies" element={<MoviesPage />} />
-        <Route path="/movies/:movieId" element={<MovieDetailsPage />}>
-          <Route path="/movies/:movieId/cast" element={<Cast />} />
-          <Route path="/movies/:movieId/reviews" element={<Reviews />} />
-        </Route>
-
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
+      <UserRoutes />
     </>
   );
 };

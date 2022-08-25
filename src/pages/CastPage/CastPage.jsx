@@ -1,7 +1,7 @@
 import { useFetchMoviesCast } from '../../hooks/useFetchMoviesCast';
-import { CastList } from '../Cast/CastList/CastList';
+import { CastList } from '../../components/Cast/CastList/CastList';
 
-export const Cast = () => {
+export const CastPage = () => {
   const cast = useFetchMoviesCast();
 
   return (
@@ -9,4 +9,8 @@ export const Cast = () => {
       <ul>{cast && <CastList array={cast} />}</ul>
     </div>
   );
+};
+
+CastPage.defaultProps = {
+  array: [],
 };
