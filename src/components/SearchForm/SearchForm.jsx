@@ -1,19 +1,30 @@
-// export const SearchForm = onSubmit => {
-//   const handleChange = () => {
-//     // onSubmit();
-//   };
+import { useState } from 'react';
 
-//   const handleSubmit = event => {
-//     event.preventDefault();
+export const SearchForm = ({ onSubmit }) => {
+  const [state, setState] = useState({ search: '' });
 
-//     const { name, value } = event.target;
-//     console.log(event.target);
-//   };
+  const handleChange = e => {
+    const { name, value } = e.target;
+    setState({ ...state, [name]: value });
+  };
 
-//   return (
-//     <form onChange={handleChange}>
-//       <input name="search" placeholder="search.." required />
-//       <button onSubmit={handleSubmit}>Search</button>
-//     </form>
-//   );
-// };
+  const handleSubmit = event => {
+    event.preventDefault();
+
+    onSubmit({ ...state });
+    setState({ search: '' });
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <input
+        onChange={handleChange}
+        name="search"
+        value={state.search}
+        placeholder="..."
+        required
+      />
+      <button>Search</button>
+    </form>
+  );
+};
