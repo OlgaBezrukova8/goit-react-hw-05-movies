@@ -2,9 +2,9 @@ import { useFetchMoviesCast } from '../../hooks/useFetchMoviesCast';
 import noImagePhoto from '../../images/no-img.jpg';
 
 const basePosterUrl = 'https://image.tmdb.org/t/p/w500';
-const noInfoMessage = "We don't have any reviews for this movie.";
+const noInfoMessage = "We don't have any information.";
 
-export const CastPage = () => {
+const CastPage = () => {
   const cast = useFetchMoviesCast();
 
   return (
@@ -31,3 +31,5 @@ export const CastPage = () => {
 CastPage.defaultProps = {
   array: [],
 };
+
+export default CastPage;

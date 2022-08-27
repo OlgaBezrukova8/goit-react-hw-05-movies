@@ -4,7 +4,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { fetchApiTrendingMovies } from '../../servises/fetchApiMovies';
 
-export const HomePage = () => {
+const HomePage = () => {
   const [movies, setMovies] = useState(null);
   const [error, setError] = useState(null);
 
@@ -44,3 +44,5 @@ HomePage.propTypes = {
     id: PropTypes.number.isRequired,
   }),
 };
+
+export default HomePage;

@@ -10,7 +10,7 @@ import { MovieDetails } from '../../components/MovieDetails/MovieDetails';
 
 const basePosterUrl = 'https://image.tmdb.org/t/p';
 
-export const MovieDetailsPage = () => {
+const MovieDetailsPage = () => {
   const movie = useFetchMovies();
   const { movieId } = useParams();
 
@@ -49,3 +49,5 @@ export const MovieDetailsPage = () => {
     </>
   );
 };
+
+export default MovieDetailsPage;
