@@ -13,13 +13,6 @@ const NotFoundPage = lazy(() =>
   import('../../pages/NotFoundPage/NotFoundPage')
 );
 
-// import HomePage from '../../pages/HomePage/HomePage';
-// import MoviesPage from '../../pages/MoviesPage/MoviesPage';
-// import MovieDetailsPage from '../../pages/MovieDetailsPage/MovieDetailsPage';
-// import CastPage from '../../pages/CastPage/CastPage';
-// import ReviewsPage from '../../pages/ReviewsPage/ReviewsPage';
-// import NotFoundPage from '../../pages/NotFoundPage/NotFoundPage';
-
 export const UserRoutes = () => {
   return (
     <Suspense
