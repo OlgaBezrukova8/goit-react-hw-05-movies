@@ -8,6 +8,8 @@ import {
 import { useFetchMovies } from '../../hooks/useFetchMovies';
 import { MovieDetails } from '../../components/MovieDetails/MovieDetails';
 import { Loader } from '../../components/Loader/Loader';
+import styles from '../MovieDetailsPage/MovieDetailsPage.module.css';
+import cssDiv from '../../components/Container/Container.module.css';
 
 const basePosterUrl = 'https://image.tmdb.org/t/p';
 
@@ -23,8 +25,10 @@ const MovieDetailsPage = () => {
   const goBack = () => navigate(from);
 
   return (
-    <>
-      <button onClick={goBack}>Go back</button>
+    <div className={cssDiv.container}>
+      <button className={styles.button} onClick={goBack}>
+        Go back
+      </button>
       {!movie && <Loader />}
       {movie && (
         <>
@@ -36,11 +40,19 @@ const MovieDetailsPage = () => {
             genres={movie.genres.map(({ name }) => name + ' ')}
           />
           <div>
-            <p>Additional information</p>
-            <Link state={{ from }} to={`/movies/${movieId}/cast`}>
+            <p className={styles.title}>Additional information</p>
+            <Link
+              className={styles.links}
+              state={{ from }}
+              to={`/movies/${movieId}/cast`}
+            >
               Cast
             </Link>
-            <Link state={{ from }} to={`/movies/${movieId}/reviews`}>
+            <Link
+              className={styles.links}
+              state={{ from }}
+              to={`/movies/${movieId}/reviews`}
+            >
               Reviews
             </Link>
           </div>
@@ -48,7 +60,7 @@ const MovieDetailsPage = () => {
       )}
 
       <Outlet />
-    </>
+    </div>
   );
 };
 

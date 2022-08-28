@@ -1,0 +1,13 @@
+.title {
+  margin-bottom: 16px;
+}
+
+.list {
+  list-style: none;
+}
+
+.item {
+  line-height: 1.6;
+  text-decoration: none;
+  color: inherit;
+}
