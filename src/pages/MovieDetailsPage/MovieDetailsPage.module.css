@@ -22,10 +22,12 @@
   color: #008b8b;
 }
 
-.links {
-  margin-right: 8px;
-  font-size: 14px;
-  text-decoration: none;
-  color: inherit;
+.list {
+  margin-bottom: 15px;
+  display: flex;
+  list-style: none;
 }
 
+.item:not(:last-child) {
+  margin-right: 10px;
+}

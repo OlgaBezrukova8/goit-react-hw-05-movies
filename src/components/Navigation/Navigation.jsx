@@ -1,15 +1,11 @@
 import { NavLink } from 'react-router-dom';
 import { navLinks } from '../../components/Navigation/navLinks';
 import styles from '../Navigation/Navigation.module.css';
-
-const getClassName = ({ isActive }) => {
-  const className = isActive ? `${styles.link} ${styles.active}` : styles.link;
-  return className;
-};
+import { getNavigationClassName } from '../../functions/getNavigationClassName';
 
 const nav = navLinks.map(({ to, name }) => (
   <li key={name} className={styles.item}>
-    <NavLink className={getClassName} to={to}>
+    <NavLink className={getNavigationClassName} to={to}>
       {name}
     </NavLink>
   </li>

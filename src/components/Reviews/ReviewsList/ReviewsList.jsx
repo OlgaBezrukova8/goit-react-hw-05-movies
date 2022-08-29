@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 export const ReviewsList = ({ array }) => {
   return array.map(({ id, author, content }) => (
     <li key={id}>
@@ -5,4 +7,10 @@ export const ReviewsList = ({ array }) => {
       <p>{content}</p>
     </li>
   ));
+};
+
+ReviewsList.propTypes = {
+  author: PropTypes.string,
+  id: PropTypes.number,
+  content: PropTypes.string,
 };

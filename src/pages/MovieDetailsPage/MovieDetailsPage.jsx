@@ -1,5 +1,5 @@
 import {
-  Link,
+  NavLink,
   Outlet,
   useLocation,
   useParams,
@@ -10,6 +10,7 @@ import { MovieDetails } from '../../components/MovieDetails/MovieDetails';
 import { Loader } from '../../components/Loader/Loader';
 import styles from '../MovieDetailsPage/MovieDetailsPage.module.css';
 import cssDiv from '../../components/Container/Container.module.css';
+import { getNavigationClassName } from '../../functions/getNavigationClassName';
 
 const basePosterUrl = 'https://image.tmdb.org/t/p';
 
@@ -41,20 +42,28 @@ const MovieDetailsPage = () => {
           />
           <div>
             <p className={styles.title}>Additional information</p>
-            <Link
-              className={styles.links}
-              state={{ from }}
-              to={`/movies/${movieId}/cast`}
-            >
-              Cast
-            </Link>
-            <Link
-              className={styles.links}
-              state={{ from }}
-              to={`/movies/${movieId}/reviews`}
-            >
-              Reviews
-            </Link>
+
+            <ul className={styles.list}>
+              <li className={styles.item}>
+                <NavLink
+                  className={getNavigationClassName}
+                  state={{ from }}
+                  to={`/movies/${movieId}/cast`}
+                >
+                  Cast
+                </NavLink>
+              </li>
+
+              <li className={styles.item}>
+                <NavLink
+                  className={getNavigationClassName}
+                  state={{ from }}
+                  to={`/movies/${movieId}/reviews`}
+                >
+                  Reviews
+                </NavLink>
+              </li>
+            </ul>
           </div>
         </>
       )}
