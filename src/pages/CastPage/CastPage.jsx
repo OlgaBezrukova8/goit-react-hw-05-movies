@@ -1,10 +1,10 @@
-import { useFetchMoviesCast } from '../../hooks/useFetchMoviesCast';
 import noImagePhoto from '../../images/no-img.jpg';
+import { useFetchMoviesCast } from '../../hooks/useFetchMoviesCast';
 import { Loader } from '../../components/Loader/Loader';
+import { ErrorMessage } from '../../components/ErrorMessage/ErrorMessage';
 import styles from '../CastPage/CastPage.module.css';
 
 const basePosterUrl = 'https://image.tmdb.org/t/p/w500';
-const noInfoMessage = "We don't have any information.";
 
 const CastPage = () => {
   const cast = useFetchMoviesCast();
@@ -13,7 +13,9 @@ const CastPage = () => {
     <div className={styles.box}>
       <ul className={styles.list}>
         {cast === null && <Loader />}
-        {cast !== null && cast.length < 0 && noInfoMessage}
+        {cast !== null && cast.length === 0 && (
+          <ErrorMessage text="We don't have any information." />
+        )}
         {cast !== null &&
           cast.length > 0 &&
           cast.map(({ id, name, character, profile_path: img }) => {

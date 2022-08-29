@@ -11,7 +11,9 @@ export const useFetchMoviesCast = () => {
   useEffect(() => {
     fetchApiMoviesCredits(id)
       .then(setCast)
-      .catch(error => console.log(error));
+      .catch(error => {
+        console.log(error);
+      });
   }, [id]);
 
   return cast;
