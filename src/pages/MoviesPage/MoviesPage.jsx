@@ -4,6 +4,8 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { fetchApiSearchMovies } from '../../servises/fetchApiMovies';
 import { Loader } from '../../components/Loader/Loader';
 import { SearchForm } from '../../components/SearchForm/SearchForm';
+import cssDiv from '../../components/Container/Container.module.css';
+import styles from '../MoviesPage/MoviesPage.module.css';
 
 const MoviesPage = () => {
   const [movies, setMovies] = useState([]);
@@ -46,15 +48,21 @@ const MoviesPage = () => {
               `Ooops, something went wrong ${error.message}. Please, reload the page`
             )}
           {movies.length > 0 && (
-            <ul>
-              {movies.map(({ id, title }) => (
-                <li key={id}>
-                  <Link state={{ from: location }} to={`/movies/${id}`}>
-                    {title}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            <div className={cssDiv.container}>
+              <ul className={styles.list}>
+                {movies.map(({ id, title }) => (
+                  <li key={id}>
+                    <Link
+                      className={styles.item}
+                      state={{ from: location }}
+                      to={`/movies/${id}`}
+                    >
+                      {title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
           )}
         </>
       )}

@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import cssDiv from '../Container/Container.module.css';
+import styles from '../SearchForm/SearchForm.module.css';
 
 export const SearchForm = ({ onSubmit }) => {
   const [state, setState] = useState({ search: '' });
@@ -16,15 +18,17 @@ export const SearchForm = ({ onSubmit }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className={cssDiv.container} onSubmit={handleSubmit}>
       <input
+        className={styles.input}
         onChange={handleChange}
         name="search"
         value={state.search}
-        placeholder="..."
+        placeholder="Enter a movie title"
         required
       />
-      <button>Search</button>
+
+      <button className={styles.button}>Search</button>
     </form>
   );
 };

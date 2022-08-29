@@ -1,0 +1,9 @@
+.list {
+  composes: list from '../HomePage/HomePage.module.css';
+}
+
+.item {
+  composes: item from '../HomePage/HomePage.module.css';
+}
+
+

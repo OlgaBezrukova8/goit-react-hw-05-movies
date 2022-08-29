@@ -30,7 +30,7 @@ const HomePage = () => {
       <ul className={styles.list}>
         {movies &&
           movies.results.map(({ title, id }) => (
-            <li key={id} className={styles.item}>
+            <li key={id}>
               <Link
                 className={styles.item}
                 state={{ from: location }}

@@ -1,0 +1,19 @@
+.input {
+  padding: 5px 0px;
+  margin-right: 15px;
+
+  width: 250px;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid;
+}
+
+.input:focus {
+  border-color: #008b8b;
+}
+
+.button {
+  composes: button from '../../pages/MovieDetailsPage/MovieDetailsPage.module.css';
+}
+
+
